@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+    <variable name = "myProject"
+    type="com.example.addnamesavedata2.ui.main.MainViewModel" />
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.main.MainFragment"
+    android:configChanges="orientation|screenSize|keyboardHidden">
+
+    <EditText
+        android:id="@+id/nameText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nameText"
+        android:inputType="textPersonName"
+        android:text="@={myProject.nameText}"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.499"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="TouchTargetSizeCheck,TextContrastCheck" />
+
+    <Button
+        android:id="@+id/addNameButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{() -> myProject.convertText()}"
+        android:text="@string/addNameButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/nameText" />
+
+    <TextView
+        android:id="@+id/resultText"
+        android:layout_width="337dp"
+        android:layout_height="462dp"
+        android:text='@{(myProject.stringResult) == null? "No names to diaplay" : String.valueOf(myProject.stringResult)}'
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="32dp"
+        android:hint="@string/no_names_to_display"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/addNameButton"
+        tools:text="@string/no_names_to_display" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
