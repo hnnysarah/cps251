@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">CoroutinesPeoject</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="enterName">Enter Name</string>
+
+    <string name="buttonText">ADD NAME</string>
+
+</resources>
